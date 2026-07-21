@@ -1,0 +1,17 @@
+name: Rahman CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository indiriliyor
+        uses: actions/checkout@v4
+
+      - name: Workflow çalışıyor
+        run: echo "GitHub Actions başarıyla çalıştı."
