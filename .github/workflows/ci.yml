@@ -13,5 +13,11 @@ jobs:
       - name: Repository indiriliyor
         uses: actions/checkout@v4
 
-      - name: Workflow çalışıyor
-        run: echo "GitHub Actions başarıyla çalıştı."
+      - name: Dosyaları Listele
+        run: ls -la
+
+      - name: index.html Kontrolü
+        run: cat index.html
+
+      - name: Workflow başarıyla tamamlandı
+        run: echo "CI Pipeline başarıyla çalıştı."
