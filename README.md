@@ -1,30 +1,35 @@
 # DevOps CI/CD Projesi
 
-Bu depo, Git ve GitHub Actions kullanarak basit bir CI/CD akışını öğrenmek için hazırlanmıştır.
+Git ve GitHub Actions kullanarak temel bir CI akışını öğrenmek için hazırlanmış, Türkçe ve mobil uyumlu statik proje sayfası.
+
+## Projeyi görüntüleme
+
+Ek bir paket kurulumu gerekmez. Depoyu indirdikten sonra `index.html` dosyasını tarayıcıda açabilirsin. Güncel workflow durum rozeti, GitHub Actions sayfasına bağlanır.
 
 ## Depodaki dosyalar
 
-- `index.html`: Projede kullanılan örnek HTML sayfası.
+- `index.html`: Proje sayfasının erişilebilir HTML yapısı.
+- `styles.css`: Masaüstü ve telefon ekranlarına uyumlu stiller.
 - `.github/workflows/ci.yml`: GitHub Actions iş akışı.
 
-## CI akışı
+## Mevcut CI akışı
 
-Workflow, `master` dalına yapılan her push işleminde çalışır. GitHub Actions:
+Workflow, `master` dalına push yapıldığında çalışır ve:
 
-1. Depoyu sanal makineye indirir.
+1. Depoyu GitHub Actions sanal makinesine indirir.
 2. Dosyaları listeler.
-3. `index.html` içeriğini ekrana yazar.
-4. Akışın tamamlandığını belirten mesajı gösterir.
+3. `index.html` içeriğini loglara yazar.
+4. Tamamlandığını bildiren bir mesaj gösterir.
 
-Çalışma sonucunu GitHub'daki **Actions** sekmesinden görebilirsin.
+Çalışma geçmişini [Actions sekmesinden](https://github.com/sabawoonrahman942-netizen/devops-cicd-demo11/actions) takip edebilirsin.
 
-## Mevcut sınır
+## Projenin sınırı
 
-Bu workflow şu an bir dağıtım yapmaz ve uygulamayı bir sunucuya yayınlamaz. Yalnızca depoyu indirip dosyaları gösteren temel bir CI demosudur.
+Bu workflow şu an HTML/CSS testi veya sunucuya dağıtım yapmaz. Sayfa statik dosyalardan oluşur ve ek servis gerektirmez.
 
-## Değişiklik gönderme
+## Katkı gönderme
 
-1. Yeni bir dal oluştur.
-2. Değişikliği bu dalda commit et.
-3. GitHub'da `master` dalına bir pull request aç.
-4. Pull request birleştirildikten sonra `master` dalına gelen push workflow'u başlatır.
+1. Yeni bir dal aç.
+2. Değişikliği commit et ve GitHub'a gönder.
+3. `master` dalına pull request aç.
+4. Birleştirilen değişiklik `master` dalına geldiğinde CI workflow'u çalışır.
