@@ -14,9 +14,9 @@ Ek bir paket kurulumu gerekmez. Depoyu indirdikten sonra `index.html` dosyasın�
 
 ## Mevcut CI akışı
 
-Workflow, `master` dalına push yapıldığında çalışır ve:
+Workflow, `master` dalına pull request açıldığında ve `master` dalına push yapıldığında çalışır. GitHub Actions:
 
-1. Depoyu GitHub Actions sanal makinesine indirir.
+1. Depoyu sanal makineye indirir.
 2. Dosyaları listeler.
 3. `index.html` içeriğini loglara yazar.
 4. Tamamlandığını bildiren bir mesaj gösterir.
@@ -25,11 +25,12 @@ Workflow, `master` dalına push yapıldığında çalışır ve:
 
 ## Projenin sınırı
 
-Bu workflow şu an HTML/CSS testi veya sunucuya dağıtım yapmaz. Sayfa statik dosyalardan oluşur ve ek servis gerektirmez.
+Bu workflow şu an HTML/CSS testi veya sunucuya dağıtım yapmaz. CI adımları tamamlandığında iş akışı başarılı olur; bu, sayfanın gerçek bir sunucuya yayınlandığı anlamına gelmez.
 
 ## Katkı gönderme
 
 1. Yeni bir dal aç.
 2. Değişikliği commit et ve GitHub'a gönder.
 3. `master` dalına pull request aç.
-4. Birleştirilen değişiklik `master` dalına geldiğinde CI workflow'u çalışır.
+4. Pull request için CI workflow sonucu otomatik çalışır.
+5. Birleştirme sonrası `master` dalına gelen push da workflow'u çalıştırır.
