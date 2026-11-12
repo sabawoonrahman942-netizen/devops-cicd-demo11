@@ -1,4 +1,129 @@
-Merhaba CI/CD
-<h1>DevOps CI/CD Projesi</h1>
-<p>Feature Branch Çalışması</p>
-<!-- Git calisma testi -->
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a2b">
+  <meta name="description" content="Git ve GitHub Actions ile CI/CD sürecini adım adım öğrenmek için hazırlanmış uygulamalı proje.">
+  <title>DevOps CI/CD Projesi | Rahman</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#icerik">İçeriğe geç</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="DevOps Lab ana sayfa">
+        <span class="brand-icon" aria-hidden="true">R</span>
+        <span>DevOps<span class="brand-light">Lab</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Ana menü">
+        <a href="#akisim">Akış</a>
+        <a href="#hedef">Proje hedefi</a>
+      </nav>
+      <a class="header-link" href="https://github.com/sabawoonrahman942-netizen/devops-cicd-demo11/actions" target="_blank" rel="noreferrer">
+        Actions'ı aç <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="icerik">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse-dot"></span> UYGULAMALI CI/CD LABORATUVARI</p>
+          <h1>Koddan otomasyona,<br><span>adım adım.</span></h1>
+          <p class="hero-text">
+            Git ve GitHub Actions kullanarak yazılım değişikliklerinin nasıl takip edildiğini
+            ve bir CI akışının nasıl çalıştığını öğren.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://github.com/sabawoonrahman942-netizen/devops-cicd-demo11/actions" target="_blank" rel="noreferrer">
+              Çalışma geçmişini gör <span aria-hidden="true">↗</span>
+            </a>
+            <a class="text-link" href="#akisim">Akışı keşfet <span aria-hidden="true">↓</span></a>
+          </div>
+          <a class="status-link" href="https://github.com/sabawoonrahman942-netizen/devops-cicd-demo11/actions/workflows/ci.yml" target="_blank" rel="noreferrer">
+            <img src="https://github.com/sabawoonrahman942-netizen/devops-cicd-demo11/actions/workflows/ci.yml/badge.svg?branch=master" alt="master dalı CI iş akışının güncel durumu">
+          </a>
+        </div>
+
+        <div class="terminal-card" aria-label="Örnek GitHub Actions adımları">
+          <div class="terminal-top">
+            <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span>ci.yml</span>
+            <span class="terminal-label">GITHUB ACTIONS</span>
+          </div>
+          <div class="terminal-body">
+            <p class="terminal-comment"># master dalına push geldi</p>
+            <div class="terminal-step"><span class="step-check">✓</span><span><b>01</b> Depoyu indir</span><small>checkout</small></div>
+            <div class="terminal-step"><span class="step-check">✓</span><span><b>02</b> Dosyaları listele</span><small>ls -la</small></div>
+            <div class="terminal-step"><span class="step-check">✓</span><span><b>03</b> HTML içeriğini göster</span><small>cat index.html</small></div>
+            <div class="terminal-result"><span class="result-dot"></span> Akış tamamlandı <span class="result-time">CI</span></div>
+          </div>
+          <div class="terminal-footer"><span>workflow: Rahman CI/CD Pipeline</span><span>● master</span></div>
+        </div>
+      </div>
+      <div class="hero-orb orb-one" aria-hidden="true"></div>
+      <div class="hero-orb orb-two" aria-hidden="true"></div>
+    </section>
+
+    <section class="flow-section" id="akisim">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow eyebrow-dark">AKIŞ NASIL ÇALIŞIYOR?</p>
+            <h2>Her adım görünür,<br><span>her değişiklik izlenebilir.</span></h2>
+          </div>
+          <p>Şu anki workflow, <code>master</code> dalına push geldiğinde başlar ve aşağıdaki temel CI adımlarını çalıştırır.</p>
+        </div>
+        <div class="flow-grid">
+          <article class="flow-card">
+            <span class="flow-number">01</span>
+            <div class="flow-icon icon-git" aria-hidden="true">⌘</div>
+            <h3>Değişikliği gönder</h3>
+            <p>Güncellemelerini Git ile kaydet ve GitHub'daki <code>master</code> dalına gönder.</p>
+            <span class="flow-tag">GIT · PUSH</span>
+          </article>
+          <article class="flow-card">
+            <span class="flow-number">02</span>
+            <div class="flow-icon icon-action" aria-hidden="true">↻</div>
+            <h3>Workflow başlasın</h3>
+            <p>GitHub Actions depoyu sanal makineye indirir ve iş adımlarını sırayla çalıştırır.</p>
+            <span class="flow-tag">GITHUB ACTIONS</span>
+          </article>
+          <article class="flow-card">
+            <span class="flow-number">03</span>
+            <div class="flow-icon icon-check" aria-hidden="true">✓</div>
+            <h3>Sonucu incele</h3>
+            <p>Dosya çıktısını ve çalışma sonucunu GitHub'ın Actions sekmesinden takip et.</p>
+            <span class="flow-tag">CI · GÖZLEMLE</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="goal-section" id="hedef">
+      <div class="container goal-panel">
+        <div class="goal-mark" aria-hidden="true">→</div>
+        <div>
+          <p class="eyebrow">BU PROJENİN HEDEFİ</p>
+          <h2>Öğren, dene, sonra<br><span>akışı büyüt.</span></h2>
+          <p>Bu depo şu an temel bir CI demosudur; sunucuya dağıtım yapmaz. Yeni adımlar eklendikçe pipeline geliştirilebilir.</p>
+        </div>
+        <a class="button button-outline" href="https://github.com/sabawoonrahman942-netizen/devops-cicd-demo11" target="_blank" rel="noreferrer">
+          Depoyu incele <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand footer-brand" href="#"><span class="brand-icon" aria-hidden="true">R</span><span>DevOps<span class="brand-light">Lab</span></span></a>
+      <p>Git ve CI/CD öğrenme projesi</p>
+      <a href="https://github.com/sabawoonrahman942-netizen/devops-cicd-demo11" target="_blank" rel="noreferrer">GitHub deposu <span aria-hidden="true">↗</span></a>
+    </div>
+  </footer>
+</body>
+</html>

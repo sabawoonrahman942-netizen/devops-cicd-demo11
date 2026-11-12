@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -13,11 +19,11 @@ jobs:
       - name: Repository indiriliyor
         uses: actions/checkout@v4
 
-      - name: Dosyaları Listele
+      - name: Dosyalar listeleniyor
         run: ls -la
 
-      - name: index.html Kontrolü
+      - name: index.html çıktısı gösteriliyor
         run: cat index.html
 
-      - name: Workflow başarıyla tamamlandı
+      - name: Workflow tamamlandı
         run: echo "CI Pipeline başarıyla çalıştı."
