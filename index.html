@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101a2b">
-  <meta name="description" content="Git ve GitHub Actions ile CI/CD sürecini adım adım öğrenmek için hazırlanmış uygulamalı proje.">
+  <meta name="description" content="Flask, SQLite, Git ve GitHub Actions ile görev yönetimi ve CI/CD öğrenme projesi.">
   <title>DevOps CI/CD Projesi | Rahman</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -19,7 +19,7 @@
       </a>
       <nav class="main-nav" aria-label="Ana menü">
         <a href="#akisim">Akış</a>
-        <a href="#hedef">Proje hedefi</a>
+        <a href="#gorevler">Görevler</a>\n        <a href="#hedef">Proje hedefi</a>
       </nav>
       <a class="header-link" href="https://github.com/sabawoonrahman942-netizen/devops-cicd-demo11/actions" target="_blank" rel="noreferrer">
         Actions'ı aç <span aria-hidden="true">↗</span>
@@ -34,8 +34,7 @@
           <p class="eyebrow"><span class="pulse-dot"></span> UYGULAMALI CI/CD LABORATUVARI</p>
           <h1>Koddan otomasyona,<br><span>adım adım.</span></h1>
           <p class="hero-text">
-            Git ve GitHub Actions kullanarak yazılım değişikliklerinin nasıl takip edildiğini
-            ve bir CI akışının nasıl çalıştığını öğren.
+            GitHub Actions ile CI akışını öğren; Flask API ve SQLite ile görevlerini kalıcı olarak kaydet.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://github.com/sabawoonrahman942-netizen/devops-cicd-demo11/actions" target="_blank" rel="noreferrer">
@@ -103,6 +102,35 @@
       </div>
     </section>
 
+    <section class="task-section" id="gorevler" aria-labelledby="task-heading">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow eyebrow-dark">FLASK + SQLITE</p>
+            <h2 id="task-heading">Görevlerini <span>kaydet ve takip et.</span></h2>
+          </div>
+          <p>Görevler Flask API üzerinden SQLite veritabanına yazılır. Sayfayı yenilesen de kayıtların korunur.</p>
+        </div>
+
+        <div class="task-app">
+          <form class="task-form" id="task-form">
+            <label class="sr-only" for="task-title">Yeni görev</label>
+            <input id="task-title" name="title" type="text" maxlength="120" placeholder="Örn. CI/CD akışını öğren" autocomplete="off" required>
+            <button class="button button-primary" type="submit">Görev ekle <span aria-hidden="true">+</span></button>
+          </form>
+          <p class="task-status" id="task-status" aria-live="polite"></p>
+          <ul class="task-list" id="task-list" aria-label="Görev listesi">
+            <li class="task-empty">Görevler yükleniyor...</li>
+          </ul>
+          <div class="task-meta">
+            <span id="task-count">Yükleniyor</span>
+            <span class="database-label"><i aria-hidden="true"></i> SQLite veritabanı</span>
+          </div>
+        </div>
+        <p class="api-caption"><code>GET</code> listele <code>POST</code> ekle <code>PATCH</code> tamamla <code>DELETE</code> sil</p>
+      </div>
+    </section>
+
     <section class="goal-section" id="hedef">
       <div class="container goal-panel">
         <div class="goal-mark" aria-hidden="true">→</div>
@@ -121,9 +149,9 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <a class="brand footer-brand" href="#"><span class="brand-icon" aria-hidden="true">R</span><span>DevOps<span class="brand-light">Lab</span></span></a>
-      <p>Git ve CI/CD öğrenme projesi</p>
+      <p>Git, CI/CD ve SQLite öğrenme projesi</p>
       <a href="https://github.com/sabawoonrahman942-netizen/devops-cicd-demo11" target="_blank" rel="noreferrer">GitHub deposu <span aria-hidden="true">↗</span></a>
     </div>
   </footer>
-</body>
+  <script src="/app.js" defer></script>\n</body>
 </html>
