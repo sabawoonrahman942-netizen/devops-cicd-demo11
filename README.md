@@ -1,36 +1,56 @@
 # DevOps CI/CD Projesi
 
-Git ve GitHub Actions kullanarak temel bir CI akışını öğrenmek için hazırlanmış, Türkçe ve mobil uyumlu statik proje sayfası.
+Git, GitHub Actions, Flask ve SQLite ile küçük bir görev takip uygulaması. Arayüzden eklenen görevler yerel SQLite veritabanında saklanır.
 
-## Projeyi görüntüleme
+## Gereksinimler
 
-Ek bir paket kurulumu gerekmez. Depoyu indirdikten sonra `index.html` dosyasını tarayıcıda açabilirsin. Güncel workflow durum rozeti, GitHub Actions sayfasına bağlanır.
+- Python 3.10 veya üzeri
+- pip
 
-## Depodaki dosyalar
+## Yerel çalıştırma
 
-- `index.html`: Proje sayfasının erişilebilir HTML yapısı.
-- `styles.css`: Masaüstü ve telefon ekranlarına uyumlu stiller.
-- `.github/workflows/ci.yml`: GitHub Actions iş akışı.
+Windows PowerShell:
 
-## Mevcut CI akışı
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python app.py
+```
 
-Workflow, `master` dalına pull request açıldığında ve `master` dalına push yapıldığında çalışır. GitHub Actions:
+Linux veya macOS:
 
-1. Depoyu sanal makineye indirir.
-2. Dosyaları listeler.
-3. `index.html` içeriğini loglara yazar.
-4. Tamamlandığını bildiren bir mesaj gösterir.
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
 
-Çalışma geçmişini [Actions sekmesinden](https://github.com/sabawoonrahman942-netizen/devops-cicd-demo11/actions) takip edebilirsin.
+Sonra tarayıcıda [http://127.0.0.1:5000](http://127.0.0.1:5000) adresini aç. Bu sunucu yerel geliştirme içindir.
 
-## Projenin sınırı
+## Veritabanı ve API
 
-Bu workflow şu an HTML/CSS testi veya sunucuya dağıtım yapmaz. CI adımları tamamlandığında iş akışı başarılı olur; bu, sayfanın gerçek bir sunucuya yayınlandığı anlamına gelmez.
+SQLite veritabanı ilk çalıştırmada `instance/tasks.sqlite3` konumunda oluşturulur. `instance/` klasörü Git'e eklenmez; görevler aynı makinede uygulama yeniden başlatıldığında korunur.
 
-## Katkı gönderme
+| İşlem | Uç nokta | Açıklama |
+|---|---|---|
+| GET | `/api/tasks` | Görevleri listeler |
+| POST | `/api/tasks` | `{"title":"Görev adı"}` ile görev ekler |
+| PATCH | `/api/tasks/<id>` | `{"completed":true}` ile tamamlanma durumunu değiştirir |
+| DELETE | `/api/tasks/<id>` | Görevi siler |
 
-1. Yeni bir dal aç.
-2. Değişikliği commit et ve GitHub'a gönder.
-3. `master` dalına pull request aç.
-4. Pull request için CI workflow sonucu otomatik çalışır.
-5. Birleştirme sonrası `master` dalına gelen push da workflow'u çalıştırır.
+Görev başlığı zorunludur ve en fazla 120 karakter olabilir. API, geçersiz JSON ve bulunmayan görevler için uygun hata kodları döndürür.
+
+## GitHub Actions
+
+Workflow, `master` dalına push yapıldığında ve `master` hedefli pull request açıldığında çalışır. Mevcut adımlar depoyu indirir, dosyaları listeler ve `index.html` içeriğini loglara yazar. Bu akış henüz Flask uygulamasını test etmez veya sunucuya dağıtmaz.
+
+## Dosyalar
+
+- `app.py`: Flask uygulaması ve JSON API
+- `app.js`: Tarayıcı arayüzü ile API arasındaki bağlantı
+- `index.html` ve `styles.css`: Mobil uyumlu arayüz
+- `requirements.txt`: Python bağımlılığı
+- `.gitignore`: Yerel ortam ve SQLite dosyalarını hariç tutar
+- `.github/workflows/ci.yml`: GitHub Actions iş akışı
